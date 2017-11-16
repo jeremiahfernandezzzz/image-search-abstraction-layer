@@ -9,13 +9,13 @@ var app = new express()
 
 app.get("/", function(req,res){
 	googleSearch.build({
-		q:"",
-		start: "0",
-		fileType: "",
-		gl: "",
-		lr: "lang_en",
-		num: "",
-		siteSearch: "",
+    q: "hello",
+    start: "5",
+    fileType: "pdf",
+    gl: "tr", //geolocation,
+    lr: "lang_tr",
+    num: "10", // Number of search results to return between 1 and 10, inclusive
+    siteSearch: "http://www.google.com/" // Restricts results to URLs from a specified site
 	},
 	 function(error, response){
 		res.send(response)
