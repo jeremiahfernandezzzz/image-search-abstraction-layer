@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "express": "^4.16.2",
-    "google-search": "0.0.5"
+    "google-search": "0.0.5",
+    "node-google-image-search": "^1.0.3"
   },
   "engines": {
     "node": "8.x"
