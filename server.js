@@ -1,9 +1,11 @@
 
 var express = require("express")
-var 	imageSearch(req.params.query, functioapp = new express()
+var app = new express()
 
 var imageSearch = require('node-google-image-search');
-   imageSearch('<search-term>', callback
+
+app.get('/:query', function(req,res))
+imageSearch('<search-term>', callback
 	imageSe})
         
 function callback (results){
