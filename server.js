@@ -5,12 +5,18 @@ var app = new express()
 var imageSearch = require('node-google-image-search');
  
 app.get('/',function(req,res){
-  var results = imageSearch('hi', callback, 0, 5);
+  var searchResults = imageSearch('hi', function(results){
+      res.send(JSON.stringify(results))
+  }, 0, 5);
  
-  function callback(results) {
-      res.send('asd')
+  //function callback(results) 
+  /*
+  if (searchResults){
+    res.send(searchResults)
+  } else {
+    res.send('no refs')
   }
-      res.send('asd')
+  */
 })
 
 app.listen(process.env.PORT)
