@@ -2,31 +2,23 @@
 var express = require("express")
 var app = new express()
 
-const GoogleImages = require('google-images');
+var GoogleSearch = require('google-search');
+var googleSearch = new GoogleSearch({
+  key: process.env.CSE_API_KEY,
+  cx: process.env.CSE_ID
+});
  
-const client = new GoogleImages("006846818615894256664%3Adqfvw9xckim", "AIzaSyDE142vj4kzR_qekIiMwHYe-b4fOh6b_z0");
- 
-app.get('/', function(req,res){
-  client.search('Steve Angello')
-      .then(images => {
-        res.send(images)
-        /*
-        [{
-            "url": "http://steveangello.com/boss.jpg",
-            "type": "image/jpeg",
-            "width": 1024,
-            "height": 768,
-            "size": 102451,
-            "thumbnail": {
-                "url": "http://steveangello.com/thumbnail.jpg",
-                "width": 512,
-                "height": 512
-            }
-        }]
-         */
-    }, reason => {
-      console.log(reason); // Error!
-    } )
-  })
+app.get('/', function (req,res){
+  googleSearch.build({
+    q: "",
+    start: 5,
+    fileType: "pdf",
+  gl: "tr", //geolocation, 
+  lr: "lang_tr",
+  num: 10, // Number of search results to return between 1 and 10, inclusive 
+  siteSearch: "http://kitaplar.ankara.edu.tr/" // Restricts results to URLs from a specified site 
+}, function(error, response) {
+  console.log(response);
+});
 
 app.listen(process.env.PORT)
