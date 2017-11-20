@@ -10,6 +10,7 @@ app.get('/',function(req,res){
   function callback(results) {
       res.send('asd')
   }
+      res.send('asd')
 })
 
 app.listen(process.env.PORT)
