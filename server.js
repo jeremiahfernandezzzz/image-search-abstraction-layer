@@ -8,7 +8,7 @@ app.get('/',function(req,res){
   var results = imageSearch('hi', callback, 0, 5);
  
   function callback(results) {
-      res.send(results[0])
+      res.send('asd')
   }
 })
 
