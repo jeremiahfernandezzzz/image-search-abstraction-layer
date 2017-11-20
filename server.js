@@ -2,16 +2,14 @@
 var express = require("express")
 var app = new express()
 
-var GoogleImages = require('google-images');
-var client = new GoogleImages('006846818615894256664%3Adqfvw9xckim','AIzaSyDE142vj4kzR_qekIiMwHYe-b4fOh6b_z0')
-
-app.get('/:query', function(req,res){
-  //var a
-  client.search('hello').then(images=>{
-    //a = images
-  })
-  
-  //res.send(a)
+var imageSearch = require('node-google-image-search');
+ 
+app.get('/',function(req,res){
+  var results = imageSearch('hi', callback, 0, 5);
+ 
+  function callback(results) {
+      res.send(results[0])
+  }
 })
 
 app.listen(process.env.PORT)
