@@ -2,23 +2,17 @@
 var express = require("express")
 var app = new express()
 
-var GoogleSearch = require('google-search');
-var googleSearch = new GoogleSearch({
-  key: process.env.CSE_API_KEY,
-  cx: process.env.CSE_ID
-});
- 
-app.get('/', function (req,res){
-  googleSearch.build({
-    q: "",
-    start: 5,
-    fileType: "pdf",
-  gl: "tr", //geolocation, 
-  lr: "lang_tr",
-  num: 10, // Number of search results to return between 1 and 10, inclusive 
-  siteSearch: "http://kitaplar.ankara.edu.tr/" // Restricts results to URLs from a specified site 
-}, function(error, response) {
-  console.log(response);
-});
+/var Bing = require('node-bing-api')({ accKey: '0290a1597c0e43cabc3c77dd16826b25'});
+
+var util = require('util'),
+  Bing = require('node-bing-api')({ accKey: '0290a1597c0e43cabc3c77dd16826b25'}),
+  searchBing = util.promisify(Bing.web.bind(Bing));
+
+Bing.images("Ninja Turtles", {
+  count: 15,   // Number of results (max 50) 
+  offset: 3    // Skip first 3 result 
+  }, function(error, res, body){
+    console.log(body);
+  });
 
 app.listen(process.env.PORT)
