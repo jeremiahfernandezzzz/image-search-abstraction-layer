@@ -10,7 +10,9 @@ app.get('/',function(req,res){
   client.search('Steve Angello')
     .then(images => {
       console.log(images)
-    });
+    }).catch(error => {
+      console.log(error)
+    })
 })
 
 app.listen(process.env.PORT)
