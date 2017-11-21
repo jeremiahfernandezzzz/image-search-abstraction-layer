@@ -4,7 +4,7 @@ const qs = require('querystring');
 const got = require('got');
 
 class Client {
-	constructor(id, apiKey) {
+  constructor(id, apiKey) {
 		if (!id) {
 			throw new TypeError('Expected a Custom Search Engine ID');
 		}
@@ -49,10 +49,10 @@ class Client {
 		options = options || {};
 
 		const result = {
-			q: query.replace(/\s/g, '+'),
-			searchType: 'image',
+			key: this.apiKey,
 			cx: this.id,
-			key: this.apiKey
+			searchType: 'image',
+			q: query.replace(/\s/g, '+')
 		};
 
 		if (options.page) {
