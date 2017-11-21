@@ -50,7 +50,7 @@ class Client {
 
 		const result = {
 			q: query.replace(/\s/g, '+'),
-			searchType: 'imagedfg',
+			searchType: 'image',
 			cx: this.id,
 			key: this.apiKey
 		};
