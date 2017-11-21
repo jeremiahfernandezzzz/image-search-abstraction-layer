@@ -2,16 +2,15 @@
 var express = require("express")
 var app = new express()
 
-//var Bing = require('node-bing-api')({ accKey: '0290a1597c0e43cabc3c77dd16826b25'});
+const GoogleImages = require('google-images');
 
-const Imgur = require('imgur-node');
-const client = new Imgur.Client('jeremiahfernandezzzz');
- 
-app.get('/', function(req,res){
-  client.album.get('', (err, res) => {
-    if (err) console.error(err);
-    console.log(res);
-  });
+const client = new GoogleImages(process.env.CSE_ID, process.env.CSE_API_KEY);
+
+app.get('/',function(req,res){
+  client.search('Steve Angello')
+    .then(images => {
+      console.log(images)
+    });
 })
 
 app.listen(process.env.PORT)
