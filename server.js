@@ -9,16 +9,18 @@ const GoogleImages = require('./mymodule.js');
 
 const client = new GoogleImages('006846818615894256664:oilhtmgbk80', 'AIzaSyD2vIjre3uws0BGurMivbesspOn58DjorY');
 
-app.get('/:q', function (req,res){
+app.get('api/imagesearch/:q', function (req,res){
 client.search(req.params.q)
 	.then(search => {
     res.send(search)
   
-    vardate = new Date
+    var date = Date()
+    
     var newSearch = {
       term: req.params.q,
       when: date
     }
+    
     MongoClient.connect(url, function(err, db){
       if (db){
         console.log("connected to db")
@@ -35,5 +37,7 @@ client.search(req.params.q)
   
   
 })
+
+app.get('')
 
 app.listen(process.env.PORT)
