@@ -1,6 +1,9 @@
 
 var express = require("express")
 var app = new express()
+var mongodb = require("mongodb")
+var MongoClient = mongodb.MongoClient
+var url = 'mongodb://jopet:jopet@ds237445.mlab.com:37445/url-shortener-microservice-db'
 
 const GoogleImages = require('./mymodule.js');
 
