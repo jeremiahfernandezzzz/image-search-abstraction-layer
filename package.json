@@ -16,7 +16,8 @@
     "google-images": "^2.1.0",
     "node-bing-api": "^3.2.2",
     "imgur-search": "^1.0.1",
-    "imgur-node": "^0.2.0"
+    "imgur-node": "^0.2.0",
+    "mongodb": "^2.2.33"
   },
   "engines": {
     "node": "8.x"

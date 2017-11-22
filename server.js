@@ -11,8 +11,22 @@ const client = new GoogleImages('006846818615894256664:oilhtmgbk80', 'AIzaSyD2vI
 
 app.get('/:q', function (req,res){
 client.search(req.params.q)
-	.then(images => {
-    res.send(images)
+	.then(search => {
+    res.send(search)
+  
+    var newSearch = {
+      
+    }
+    MongoClient.connect(url, function(err, db){
+      if (db){
+        console.log("connected to db")
+        db.collection("searches").insertOne(newSearch)
+      }
+      if (err) {
+        console.log("unconnected to db")
+      }
+    })
+  
 	}).catch(error =>{
     res.send(error)
   })
