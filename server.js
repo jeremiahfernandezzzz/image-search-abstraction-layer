@@ -42,7 +42,7 @@ app.get('/api/latest/imagesearch', function(req,res){
   MongoClient.connect(url, function(err, db){
       if (db){
         console.log("connected to db")
-        db.collection("searches").find({*},{_id: 0, term: 1, when: 1}).sort({$natural:1}).limit(3).toArray(function(err, doc){
+        db.collection("searches").find({},{_id: 0, term: 1, when: 1}).sort({$natural:-1}).limit(10).toArray(function(err, doc){
           if (err) {
             res.send(err)
           } else {
