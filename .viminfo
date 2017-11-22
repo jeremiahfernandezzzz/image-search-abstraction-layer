@@ -22,17 +22,41 @@
 	{
 
 # File marks:
-'0  21  19  ~/server.js
-'1  1  0  ~/server.js
-'2  24  27  ~/server.js
+'0  2  22  ~/README.md
+'1  1  29  ~/README.md
+'2  21  19  ~/server.js
+'3  1  0  ~/server.js
+'4  24  27  ~/server.js
 
 # Jumplist (newest first):
+-'  2  22  ~/README.md
+-'  1  0  ~/README.md
+-'  21  19  ~/server.js
+-'  1  0  ~/server.js
+-'  24  27  ~/server.js
+-'  26  27  ~/server.js
+-'  21  19  ~/server.js
+-'  1  0  ~/server.js
+-'  24  27  ~/server.js
+-'  26  27  ~/server.js
+-'  21  19  ~/server.js
+-'  1  0  ~/server.js
+-'  24  27  ~/server.js
+-'  26  27  ~/server.js
 -'  21  19  ~/server.js
 -'  1  0  ~/server.js
 -'  24  27  ~/server.js
 -'  26  27  ~/server.js
 
 # History of marks within files (newest to oldest):
+
+> ~/README.md
+	"	2	22
+	^	2	23
+	.	2	7
+	+	3	20
+	+	1	29
+	+	2	7
 
 > ~/server.js
 	"	21	19

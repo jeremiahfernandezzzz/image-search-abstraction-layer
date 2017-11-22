@@ -9,6 +9,9 @@ const GoogleImages = require('./mymodule.js');
 
 const client = new GoogleImages('006846818615894256664:oilhtmgbk80', 'AIzaSyD2vIjre3uws0BGurMivbesspOn58DjorY');
 
+app.get('/', function(req,res){
+  res.send("this is my 4th fcc backend webdev basejump: image search abstraction layer.<br/>click <a href="bright-newsprint.glitch.me/api/latest/imagesearch">here</a> to view the latest searches,<br/>or bright-newsprint.glitch.me/api/imagesearch/YOUR_QUERY to search.")
+})
 app.get('/api/imagesearch/:q', function (req,res){
 client.search(req.params.q)
 	.then(search => {
