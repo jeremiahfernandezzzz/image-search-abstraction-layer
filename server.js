@@ -9,7 +9,7 @@ const GoogleImages = require('./mymodule.js');
 
 const client = new GoogleImages('006846818615894256664:oilhtmgbk80', 'AIzaSyD2vIjre3uws0BGurMivbesspOn58DjorY');
 
-app.get('api/imagesearch/:q', function (req,res){
+app.get('/api/imagesearch/:q', function (req,res){
 client.search(req.params.q)
 	.then(search => {
     res.send(search)
@@ -38,6 +38,22 @@ client.search(req.params.q)
   
 })
 
-app.get('')
+app.get('/api/latest/imagesearch', function(req,res){
+  MongoClient.connect(url, function(err, db){
+      if (db){
+        console.log("connected to db")
+        db.collection("searches").find({*},{_id: 0, term: 1, when: 1}).sort({$natural:1}).limit(3).toArray(function(err, doc){
+          if (err) {
+            res.send(err)
+          } else {
+            res.send(doc)
+          }
+        })
+      }
+      if (err) {
+        console.log("unconnected to db")
+      }
+    })
+})
 
 app.listen(process.env.PORT)
