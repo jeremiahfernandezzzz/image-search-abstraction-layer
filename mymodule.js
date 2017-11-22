@@ -30,13 +30,9 @@ class Client {
 
 			return items.map(item => ({
 				url: item.link,
-				description: item.snippet,
-				thumbnail: {
-					url: item.image.thumbnailLink,
-					width: item.image.thumbnailWidth,
-					height: item.image.thumbnailHeight
-				},
-				parentPage: item.image.contextLink
+				snippet: item.snippet,
+				thumbnail: item.image.thumbnailLink,
+				context: item.image.contextLink
 			}));
 		});
 	}
