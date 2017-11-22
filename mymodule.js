@@ -29,17 +29,13 @@ class Client {
 			const items = res.body.items || [];
 
 			return items.map(item => ({
-				type: item.mime,
-				width: item.image.width,
-				height: item.image.height,
-				size: item.image.byteSize,
 				url: item.link,
+				description: item.snippet,
 				thumbnail: {
 					url: item.image.thumbnailLink,
 					width: item.image.thumbnailWidth,
 					height: item.image.thumbnailHeight
 				},
-				description: item.snippet,
 				parentPage: item.image.contextLink
 			}));
 		});
