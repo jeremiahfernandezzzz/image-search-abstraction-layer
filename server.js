@@ -14,8 +14,10 @@ client.search(req.params.q)
 	.then(search => {
     res.send(search)
   
+    vardate = new Date
     var newSearch = {
-      
+      term: req.params.q,
+      when: date
     }
     MongoClient.connect(url, function(err, db){
       if (db){
