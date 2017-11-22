@@ -7,10 +7,10 @@ var url = 'mongodb://jopet:jopet@ds237445.mlab.com:37445/url-shortener-microserv
 
 const GoogleImages = require('./mymodule.js');
 
-const client = new GoogleImages('006846818615894256664:oilhtmgbk80', 'AIzaSyD2vIjre3uws0BGurMivbesspOn58DjorY');
+const client = new GoogleImages('006846818615894256664:oilhtmgbk80', 'AIzaSyDE142vj4kzR_qekIiMwHYe-b4fOh6b_z0');
 
 app.get('/', function(req,res){
-  res.send("this is my 4th fcc backend webdev basejump: image search abstraction layer.<br/>click <a href="bright-newsprint.glitch.me/api/latest/imagesearch">here</a> to view the latest searches,<br/>or bright-newsprint.glitch.me/api/imagesearch/YOUR_QUERY to search.")
+  res.send("this is my 4th fcc backend webdev basejump: image search abstraction layer.<br/>go to bright-newsprint.glitch.me/api/latest/imagesearch to view the latest searches,<br/>or bright-newsprint.glitch.me/api/imagesearch/YOUR_QUERY to search.")
 })
 app.get('/api/imagesearch/:q', function (req,res){
 client.search(req.params.q)
